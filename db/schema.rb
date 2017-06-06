@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170606012017) do
+ActiveRecord::Schema.define(version: 20170606012614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,16 @@ ActiveRecord::Schema.define(version: 20170606012017) do
     t.index ["volunteer_id"], name: "index_registrations_on_volunteer_id", using: :btree
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text     "description"
+    t.integer  "rating"
+    t.integer  "job_volunteer_id"
+    t.integer  "type"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["job_volunteer_id"], name: "index_reviews_on_job_volunteer_id", using: :btree
+  end
+
   create_table "states", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
@@ -126,6 +136,7 @@ ActiveRecord::Schema.define(version: 20170606012017) do
   add_foreign_key "organizations", "users"
   add_foreign_key "registrations", "cities_jobs"
   add_foreign_key "registrations", "volunteers"
+  add_foreign_key "reviews", "jobs_volunteers"
   add_foreign_key "volunteers", "cities"
   add_foreign_key "volunteers", "users"
 end
