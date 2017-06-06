@@ -26,6 +26,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'byebug', platform: :mri
+  gem "better_errors"
 end
 
 group :development do
