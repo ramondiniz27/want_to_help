@@ -17,6 +17,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'materialize-sass'
 gem 'material_icons'
+gem 'jquery-rails'
 
 group :test do
   gem "factory_girl_rails"
@@ -36,3 +37,5 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'rails_12factor', group: :production
