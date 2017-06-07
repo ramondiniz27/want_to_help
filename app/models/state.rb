@@ -1,3 +1,3 @@
 class State < ApplicationRecord
-    has many :cities
+    has_many :cities
 end
