@@ -26,7 +26,14 @@
       </div>
     </nav>
   <% end %>
-  <%= yield %>
+  <% if params[:controller]["devise/sessions"] %>
+    <%= yield %>
+  <% else %>
+    <br>
+    <div class="container">
+      <%= yield %>
+    </div>
+  <% end %>
 
   </body>
 </html>
